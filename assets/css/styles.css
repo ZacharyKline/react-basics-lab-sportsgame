@@ -1,5 +1,9 @@
 Body {
-    background: tan;
+    background: purple;
+    background-image: url('https://i.ytimg.com/vi/4gmrHQa7fEg/maxresdefault.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 
 

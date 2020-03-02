@@ -17,11 +17,15 @@ function Team(props) {
 					<img src={props.logo} height="300px" width="300px" />
 					<h3>{props.name}</h3>
 					<div className="scoreArea">
-						Shots Taken: <span>{props.stats.shots}</span>
-						Score: <span>{props.stats.score}</span>
+						<p>
+							Attacks: <span>{props.stats.shots}</span>
+						</p>
+						<p>
+							Kills: <span>{props.stats.score}</span>
+            </p>
 						<button onClick={props.handleShoot}>Take a shot</button>
-          </div>
-        {shotSpot}
+					</div>
+					{shotSpot}
 				</div>
 			</div>
 		);
@@ -51,11 +55,11 @@ class Game extends React.Component {
       resetCount: 0,
       homeTeamStats: {
         shots: 0,
-        score: 0
+        score: 0,
       },
       visitingTeamStats: {
         shots: 0,
-        score: 0
+        score: 0,
       }
     }
     this.shotSound = new Audio('./assets/audio/predshoot.wav')
@@ -78,7 +82,7 @@ class Game extends React.Component {
     this.setState((state, props) => ({
       [teamStatsKey]: {
         shots: state[teamStatsKey].shots + 1,
-        score
+        score,
       }
       }))
     
@@ -90,11 +94,15 @@ class Game extends React.Component {
       resetCount: state.resetCount += 1,
       homeTeamStats: {
         shots: 0,
-        score: 0
+        score: 0,
+        wins: 0,
+        stocks: 20
       },
       visitingTeamStats: {
         shots: 0,
-        score: 0
+        score: 0,
+        wins: 0,
+        stocks: 20
         }
     }))
   }
@@ -133,7 +141,7 @@ class Game extends React.Component {
 			</div>
 		);
   }
-}
+} 
 
 function App(props) {
   const preds = {
